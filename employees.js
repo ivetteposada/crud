@@ -1,23 +1,28 @@
 //Obtiene la base de datos existente
-let dbemploy = localStorage.getItem('employees');
+let employessData = localStorage.getItem('employees');
 
 //Si no existe base de datos la crea y la convierte en JSON
-if (!dbemploy) localStorage.setItem('employees', JSON.stringify([]));
+if (!employessData) { 
+  localStorage.setItem('employees', JSON.stringify([]));
+}
 
 //Crea la tabla en el html y la guarda en un array
 let tbody = document.getElementById('data');
 let arrayEmployees = JSON.parse(localStorage.getItem('employees'));
 
 //Crea los elementos de la tabla 
-let records = arrayEmployees.map((e,i)=>{
-    return `<tr><td>${e.lastName}</td>  
-                <td>${e.lastName2}</td> 
-                <td>${e.name}</td>
-                <td>${e.phone}</td> 
-                <td>${e.position}</td> 
-                <td class="btn-actions"><button onclick="selectButton(${i})" class="actions">Editar</button>
-                <button onclick="deleteEmploy(${i})" class="actions">Eliminar</button></td>
-            </tr> `
+let records = arrayEmployees.map((employee,index)=>{
+  return `<tr>
+    <td>${employee.lastName}</td>  
+    <td>${employee.lastName2}</td> 
+    <td>${employee.name}</td>
+    <td>${employee.phone}</td> 
+    <td>${employee.position}</td> 
+    <td class="btn-actions">
+      <button onclick="selectButton(${index})" class="actions">Editar</button>
+      <button onclick="deleteEmploy(${index})" class="actions">Eliminar</button>
+    </td>
+  </tr> `
 })
 
 //Une los registros a la tabla
@@ -27,47 +32,41 @@ let pressed = null;
 
 //Si el valor de pressed es distinto de nulo actualiza los datos del empleado
 //Si no guarda un nuevo empleado
-function newEmploy(){    
-    if(pressed!==null){
-        let employeesDb = JSON.parse(localStorage.getItem('employees'));
-        let lastName = document.getElementById('last-name').value;
-        let lastName2 = document.getElementById('last-name2').value;
-        let name = document.getElementById('name').value;
-        let phone = document.getElementById('phone').value;
-        let position = document.getElementById('position').value;
-        employeesDb[pressed] = {lastName:lastName,lastName2:lastName2,name:name,phone:phone,position:position};
-        localStorage.setItem('employees', JSON.stringify(employeesDb));
-        window.location.reload();        
-
-    } else {
-        let lastName = document.getElementById('last-name').value;
-        let lastName2 = document.getElementById('last-name2').value;
-        let name = document.getElementById('name').value;
-        let phone = document.getElementById('phone').value;
-        let position = document.getElementById('position').value;
-        let employeesDb = JSON.parse(localStorage.getItem('employees'));
-        employeesDb.push({lastName:lastName,lastName2:lastName2,name:name,phone:phone,position:position});
-        localStorage.setItem('employees', JSON.stringify(employeesDb));
-        window.location.reload();
-    }
+const newEmploy = () => {    
+  let employeesDb = JSON.parse(localStorage.getItem('employees'));
+  const employee = {
+    lastName : document.getElementById('last-name').value,
+    lastName2 : document.getElementById('last-name2').value,
+    name : document.getElementById('name').value,
+    phone : document.getElementById('phone').value,
+    position : document.getElementById('position').value,
+  }
+  if (pressed!==null) {
+    employeesDb[pressed] = employee;
+  } else {
+    employeesDb.push(employee);
+  }
+  localStorage.setItem('employees', JSON.stringify(employeesDb));
+  window.location.reload();
 }
 
 //obtiene la base de datos existente
-let employessData = JSON.parse(localStorage.getItem('employees')); 
+let employeesData = JSON.parse(localStorage.getItem('employees')); 
 
 //Envía los valors del empleado a editar a los inputs y le asigna valor a la variable pressed
-function selectButton(index){    
-    document.getElementById('last-name').value=employessData[index].lastName;
-    document.getElementById('last-name2').value=employessData[index].lastName2;
-    document.getElementById('name').value=employessData[index].name;
-    document.getElementById('phone').value=employessData[index].phone;
-    document.getElementById('position').value=employessData[index].position;
-    pressed = index;   
+const selectButton = (index) => {
+  const selectedEmployee = employeesData[index];     
+  document.getElementById('last-name').value=selectedEmployee.lastName;
+  document.getElementById('last-name2').value=selectedEmployee.lastName2;
+  document.getElementById('name').value=selectedEmployee.name;
+  document.getElementById('phone').value=selectedEmployee.phone;
+  document.getElementById('position').value=selectedEmployee.position;
+  pressed = index;   
 }
 
-//elimina un empleado cortando el array y guardando el array actualizado
-function deleteEmploy(index) {            
-    employessData.splice(index,1);    
-    localStorage.setItem('employees', JSON.stringify(employessData));
-    window.location.reload();    
+//Elimina un empleado cortando el array y guardando el array actualizado
+const deleteEmploy = (index) => {            
+  employeesData.splice(index,1);    
+  localStorage.setItem('employees', JSON.stringify(employeesData));
+  window.location.reload();    
 }
