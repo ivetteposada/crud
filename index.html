@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+        crossorigin="anonymous"
+        >
+        <link 
+        href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+        rel="stylesheet"  type='text/css'>
+        <title>Menú</title>
+    </head>
+    <body>
+        <header>
+            <!--Barra de navegación-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Las Urbanas</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="construction.html">Personal</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="construction.html">Costos</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="construction.html">Recetario</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="construction.html">Proveedores</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!--Fin Barra de navegación-->
+        
+        <h1>Personal</h1>
+        <div class="data-id">
+            <h2>Datos de identificación</h2>
+            <div class="form">        
+                <input type="text" id="last-name" class="last-name1 name" placeholder="Apellido Paterno">
+                <input type="text" id="last-name2" class="last-name2 name" placeholder="Apellido Materno">
+                <input type="text" id="name" class="firtst-name name" placeholder="Nombre(s)">
+                <input type="text" id="phone" class="name" placeholder="Teléfono">
+                <input type="text" id="position" class="name" placeholder="Puesto">        
+                <button id="save" onclick="newEmploy()">Guardar</button>                
+            </div>
+        </div>
+        <div class="table-employ">
+            <h2>Personal activo</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Nombre(s)</th>
+                        <th>Teléfono</th>
+                        <th>Puesto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
+                </tbody>                       
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center text-lg-start bg-white text-muted">        
+            <!-- Section: Links  -->
+            <section class="">
+                <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3 text-secondary"></i>Las Urbanas, SA de CV
+                    </h6>          
+                    </div>
+                    <!-- Grid column -->            
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->         
+                    <p>
+                        <a href="construction.html" class="text-reset">Personal</a>
+                    </p>
+                    <p>
+                        <a href="construction.html" class="text-reset">Costos</a>
+                    </p>
+                    <p>
+                        <a href="construction.html" class="text-reset">Recetario</a>
+                    </p>
+                    <p>
+                        <a href="construction.html" class="text-reset">Proveedores</a>
+                    </p>          
+                    </div>
+                    <!-- Grid column -->
+            
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4 contact">Contacto</h6>
+                    <p><i class="fa fa-home me-3 text-secondary" aria-hidden="true"></i> Chihahua, Chih</p>
+                    <p>
+                        <i class="fa fa-envelope me-3 text-secondary"></i>
+                        contacto@lasurbanas.com
+                    </p>
+                    <p><i class="fa fa-phone me-3 text-secondary"></i> 614 495 90 10</p>
+                    <p><i class="fa fa-phone me-3 text-secondary"></i> 614 663 50 98</p>
+                    <p><i class="fa fa-phone me-3 text-secondary"></i> 614 249 94 40</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+                </div>
+            </section>
+            <!-- Section: Links  -->
+            
+            <!-- Copyright -->
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+                © 2022 Copyright. Desarrollada y creada por Ivette Posada. Versión 0.1   
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->                    
+    </body>
+</html>            
+            
+<script src="index.js" type="text/javascript"></script>
