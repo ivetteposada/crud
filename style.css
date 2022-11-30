@@ -13,7 +13,7 @@ body {
 }
 
 .navbar-brand {
-  background-image: url(/images/logo-header.jpg) !important;
+  background-image: url(./images/logo-header.jpg) !important;
   background-repeat: no-repeat;
   width: 200px;
   height: 55px;
@@ -42,6 +42,7 @@ h2 {
   font-size: 30px;
   color: white;
   margin: 20px 0px 20px 0px !important;
+  text-align: center;
 }
 
 .form {
@@ -49,11 +50,23 @@ h2 {
   grid-template-columns: 33% 33% 33%;
 }
 
-.name {
-  margin:20px;
+.name, 
+.cost-input {
+  margin: 20px 20px 20px 0px;
+  font-weight: 500;
+  padding-left: 5px;
+  height: 40px;
 }
 
-#save {
+.data-id,
+.data-costs-input {
+  border: solid 2px white;
+  padding: 10px 10px 30px 10px;
+}
+
+#save, 
+#save2,
+.send.under {
   width: 200px;
   height: 50px;
   background-color: yellow;
@@ -69,9 +82,16 @@ table {
   text-align-last: center;
 }
 
+.table-employ,
+.table-products {  
+  padding: 10px 10px 50px 10px;
+  margin: 50px 0px 50px 0px;
+}
+
 th, td {
   border: solid 2px white !important;
   color: white;
+  text-align: center !important;
 }
 
 td {
@@ -124,13 +144,38 @@ td {
 }
 
 .text-uppercase.fw-bold.mb-4{
-  font-size: 22px;
+  font-size: 16px;
+  text-align: center;
 }
 
 .contact {
   font-size: 20px !important;
 }
 /*Fin Footer*/
+
+ /*Inicio Under-Construction*/
+ .under-construction {
+  background-image: url(/images/under-con.jpg);
+  background-repeat: repeat;
+  background-size: 52%;
+  background-position-x: 0%;
+  background-position-y: 0%;
+}
+
+.under {
+  margin: 0% 75%;
+}
+/*Fin Under-Construction*/
+
+/* Estilos costos */
+
+#save2 {
+  grid-column-start: 2;
+}
+
+#margin {
+  display: none;
+}
 
 @media (max-width:800px) {
   td {
@@ -140,11 +185,78 @@ td {
   .btn-actions {    
     align-content: space-around;
   }
+
+  .under-construction {
+    background-image: url(/images/under-con.jpg);
+    background-repeat: repeat;
+    background-size: 55%;
+    background-position-x: 0;
+    background-position-y: 0%;   
+  }
 }
 
 @media (max-width:620px) {
   .form {
-    width: fit-content;
-    grid-template-columns: 50% 50%;
+    width: auto;
+    grid-template-columns: 100%;
   }
+
+  #save2 {
+    grid-column-start: 1;
+  }
+
+  table {
+    width:100%;
+  }
+
+  thead {
+      display: none;
+  }
+
+  tr:nth-of-type(2n) {
+      background-color: inherit;
+  }
+
+  tr td:first-child {
+      background: yellow;
+      font-weight:bold;
+      font-size:1.3em;
+      color: black;
+      margin-top: 25px;
+  }
+
+  tbody td {
+      display: block;
+      text-align:center;
+      height: 40px;
+  }
+
+  tbody td:before {
+      content: attr(data-th);
+      display: block;
+      text-align:center;
+  }
+
+  .navbar-brand {
+    background-image: none !important;
+    background-repeat: no-repeat;
+    width: 135px;
+  }
+
+  .table-employ {
+    border: none;
+  }
+
+  .under-construction {
+    background-image: url(/images/under-con.jpg);
+    background-repeat: repeat;
+    background-size: 130%;
+    background-position-x: 0%;
+    background-position-y: 0%;
+  }
+
+  .under {
+    margin: 0% 60%;
+  }
+
 }

@@ -13,7 +13,7 @@
         <link 
         href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
         rel="stylesheet"  type='text/css'>
-        <title>Las Urbanas</title>
+        <title>Las Urbanas/Costos</title>
     </head>
     <body>
         <header>
@@ -45,32 +45,30 @@
         </header>
         <!--Fin Barra de navegación-->
         
-        <h1>Personal</h1>
-        <div class="data-id">
-            <h2>Datos de identificación</h2>
+        <h1>Costos</h1>
+        <div class="data-costs-input">
+            <h2>Datos del producto</h2>
             <div class="form">        
-                <input type="text" id="last-name" class="last-name1 name" placeholder="Apellido Paterno">
-                <input type="text" id="last-name2" class="last-name2 name" placeholder="Apellido Materno">
-                <input type="text" id="name" class="firtst-name name" placeholder="Nombre(s)">
-                <input type="text" id="phone" class="name" placeholder="Teléfono">
-                <input type="text" id="position" class="name" placeholder="Puesto">        
-                <button id="save" onclick="newEmploy()">Guardar</button>                
+                <input type="text" id="product-name" class="cost-input" placeholder="Nombre del producto">
+                <input type="text" id="cost" class="cost-input" placeholder="Costo">
+                <input type="text" id="sale" class="cost-input" placeholder="Precio de venta">
+                <input type="text" id="margin" class="cost-input" placeholder="Utilidad">                
+                <button id="save2" onclick="newProduct()">Guardar</button>                
             </div>
         </div>
-        <div class="table-employ">
-            <h2>Personal activo</h2>
+        <div class="table-products">
+            <h2>Productos</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Apellido Paterno</th>
-                        <th>Apellido Materno</th>
-                        <th>Nombre(s)</th>
-                        <th>Teléfono</th>
-                        <th>Puesto</th>
+                        <th>Nombre del producto</th>
+                        <th>Costo</th>
+                        <th>Precio de venta</th>
+                        <th>Utilidad</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody id="data">
+                <tbody id="data-cost">
                 </tbody>                       
             </table>
         </div>
@@ -138,7 +136,7 @@
     </body>
 </html>            
             
-<script src="employees.js" type="text/javascript"></script>
+<script src="cost.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" 
     crossorigin="anonymous">        
